@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta application-name="subtitles" author="MaximilianYan">
+    <title>Subtitles</title>
+    <!-- <link rel="icon" href="data:,"> -->
+
+    <!-- Font block -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet"> -->
+    <link rel="stylesheet" href="resources/css/fonts.css">
+
+    <link rel="stylesheet" href="resources/css/styles.css">
+    <link rel="stylesheet" href="resources/css/styles-controlForm.css">
+    <link rel="stylesheet" href="resources/css/styles-filesList.css">
+</head>
+
+<body>
+    <!-- <p id="qwe"> </p> -->
+
+    <form name="controlForm">
+        <label class="button">
+            <!-- class="fileInputButtonInput" name="file" -->
+            <input id="fileInput" type="file" multiple>
+            <span>Загрузить файлы субтитров</span>
+        </label>
+        <label class="button">
+            <input id="startInput" type="button">
+            <span>Запустить спектакль</span>
+        </label>
+        <div class="display bad" id="displayStatus">
+        </div>
+    </form>
+
+    <ul id="filesList" class="filesList">
+        <!-- <li>Элемент списка</li> -->
+    </ul>
+
+
+    <script src="resources/js/index-controlForm.js"></script>
+
+    <script src="resources/js/FeedbackData.js"></script>
+    <script src="resources/js/RawData.js"></script>
+    <script src="resources/js/Message.js"></script>
+    <script src="resources/js/VerseContent.js"></script>
+    <script src="resources/js/AriaContent.js"></script>
+    <script src="resources/js/DataManager.js"></script>
+    <script src="resources/js/PlayControl.js"></script>
+    <script src="resources/js/Controller.js"></script>
+    <script src="resources/js/main.js"></script>
+</body>
+
+</html>

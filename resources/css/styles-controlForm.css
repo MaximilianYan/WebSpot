@@ -1,0 +1,101 @@
+.button {
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+}
+
+.button span {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    font-size: 14px;
+    vertical-align: middle;
+    color: rgb(255 255 255);
+    text-align: center;
+    border-radius: 4px;
+    background-color: #419152;
+    line-height: 22px;
+    height: 40px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border: none;
+    margin: 0;
+    transition: background-color 0.2s;
+}
+
+.focusedButton {
+    box-shadow: 0 0 0 0.3rem rgba(127, 188, 254, 0.5);
+}
+
+.button .hoveredButton {
+    background-color: #59be6e;
+}
+
+.button input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    display: block;
+    width: 0;
+    height: 0;
+}
+
+/* Focus */
+/* .button input[type=file]:focus+span { */
+/*     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 1.); */
+/*     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25); */
+/* } */
+
+/* Hover/active */
+/* .button:hover span {
+    background-color: #59be6e;
+} */
+
+.button:active span {
+    background-color: #2E703A;
+}
+
+/* Disabled */
+.button input:disabled+span {
+    background-color: #eee;
+}
+
+
+
+
+.display {
+    position: relative;
+    display: inline-block;
+    /* cursor: pointer; */
+    outline: none;
+    text-decoration: none;
+    font-size: 14px;
+    vertical-align: middle;
+    color: rgb(255 255 255);
+    text-align: center;
+    border-radius: 20px;
+    /* border-radius: 4px; */
+    line-height: 22px;
+    height: 40px;
+    /* width: 40px; */
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border: none;
+    margin: 10px;
+    transition: background-color 0.2s;
+}
+
+.display.good {
+    background-color: #419152;
+}
+
+.display.bad {
+    /* background-color: #8C4F40; */
+    background-color: #C4200D;
+}
+
+.display.noInfo {
+    background-color: #BCB10D;
+}
