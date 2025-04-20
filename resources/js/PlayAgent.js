@@ -11,7 +11,12 @@ class PlayAgent {
 
     constructor() {
         this.spotNode = document.getElementById("spot");
-        this.spotNode.normalSize = parseFloat(this.spotNode.style.height);
+        this.spotNode.normalSize = parseFloat(window.getComputedStyle(this.spotNode).height) / window.innerHeight * 100;
+        this.spotNode.windowInnerRatio = window.innerHeight / window.innerWidth;
+        console.log("!!: " + this.spotNode.windowInnerRatio);
+        window.addEventListener("resize", () => {
+            this.spotNode.windowInnerRatio = window.innerHeight / window.innerWidth;
+        });
     }
 
     startPlay(data) {
@@ -37,9 +42,11 @@ class PlayAgent {
         this.spotNode.style.height = this.spotNode.normalSize * data.size + "%";
         // this.spotNode.style.marginTop = (100) / 2 * data.y + "%";
         // this.spotNode.style.marginLeft = (50) * (data.x - 1) - normalSize * data.size / 2 + "%";
-        this.spotNode.style.top = data.y + "%";
-        this.spotNode.style.left = + "%";
+        this.spotNode.style.top = (data.y / 2) * (100 - parseFloat(this.spotNode.style.height)) + "%";
+        this.spotNode.style.left = (data.x / 2) * (100 - parseFloat(this.spotNode.style.height) * this.spotNode.windowInnerRatio) + "%";
         this.spotNode.style.opacity = data.op / 2;
+
+        // console.log("h: " + window.getComputedStyle(this.spotNode).height + " w:" + this.spotNode.style.width);
     }
 
 
