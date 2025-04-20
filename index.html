@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta application-name="subtitles" author="MaximilianYan">
-    <title>Subtitles</title>
+    <meta application-name="Spot" author="MaximilianYan">
+    <title>Spot</title>
     <!-- <link rel="icon" href="data:,"> -->
 
     <!-- Font block -->
@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="resources/css/styles.css">
     <link rel="stylesheet" href="resources/css/styles-controlForm.css">
     <link rel="stylesheet" href="resources/css/styles-filesList.css">
+    <link rel="stylesheet" href="resources/css/styles-rangeSliderForm.css">
 </head>
 
 <body>
@@ -28,20 +29,31 @@
             <input id="fileInput" type="file" multiple>
             <span>Загрузить файлы субтитров</span>
         </label>
+
         <label class="button">
             <input id="startInput" type="button">
             <span>Запустить спектакль</span>
         </label>
+
         <div class="display bad" id="displayStatus">
+        </div>
+
+        <!-- rangeSlider desing source: https://codepen.io/mayuMPH/pen/ZjxGEY -->
+        <div class="range-slider">
+            <input id="rs-range-line" class="rs-range rs-input-normal" type="range" value="500" min="0" max="1000" calculatedResult="">
+            <span id="rs-bullet" class="rs-label rs-input-normal">0</span>
         </div>
     </form>
 
+
+    <!-- list desing source: https://codepen.io/equinusocio/pen/OqpBKJ -->
     <ul id="filesList" class="filesList">
         <!-- <li>Элемент списка</li> -->
     </ul>
 
 
     <script src="resources/js/index-controlForm.js"></script>
+    <script src="resources/js/index-rangeSliderForm.js"></script>
 
     <script src="resources/js/FeedbackData.js"></script>
     <script src="resources/js/RawData.js"></script>

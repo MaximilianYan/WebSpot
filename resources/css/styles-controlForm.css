@@ -67,7 +67,8 @@
 
 .display {
     position: relative;
-    display: inline-block;
+    /* display: inline-block; */
+
     /* cursor: pointer; */
     outline: none;
     text-decoration: none;
@@ -85,6 +86,8 @@
     border: none;
     margin: 10px;
     transition: background-color 0.2s;
+
+    float: right;
 }
 
 .display.good {

@@ -7,7 +7,7 @@ class Controller {
     filesListID;
     displayStatusID;
 
-    dataManager;
+    // dataManager;
     playControl;
 
 
