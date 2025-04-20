@@ -13,7 +13,7 @@ function rangeSlider2Main() {
 
     function calculateValue(x) {
         // return Math.pow(4.773 * 100000, Math.sign(x - 0.5) * Math.pow(Math.abs(x - 0.5), 2.50558));
-        return x;
+        return 2*x;
     }
 
     // function setSpeedNormal() {

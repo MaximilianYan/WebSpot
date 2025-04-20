@@ -26,6 +26,11 @@ function main() {
 
             return;
         }
+
+        if (msg.type == "updateSpot") {
+            playAgent.synchronizeSpotAct(msg.data);
+            return;
+        }
     });
 
     console.log("main done");

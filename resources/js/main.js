@@ -3,7 +3,7 @@
 function main() {
     let timerUpdateFrame;
 
-    let controller = new Controller('controlForm', 'fileInput', 'startInput', 'filesList', 'displayStatus');
+    let controller = new Controller('controlForm', 'fileInput', 'startInput', 'filesList', 'displayStatus', ['rs-range-x', 'rs-range-y', 'rs-range-size']);
 
     // window.addEventListener("beforeunload", function () {
     //     return false;

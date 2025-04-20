@@ -5,16 +5,20 @@ class PlayControl {
     displayStatusNode;
     timerUpdateStatus;
 
+    sliderInputNodes;
+
     rawDataGetter;
 
     performanceWin;
 
     feedbackCounter = 0;
 
-    constructor(startInputNode, rawDataGetter, displayStatusNode) {
+    constructor(startInputNode, rawDataGetter, displayStatusNode, sliderInputNodes) {
         this.startInputNode = startInputNode;
         this.rawDataGetter = rawDataGetter;
         this.displayStatusNode = displayStatusNode;
+
+        this.sliderInputNodes = sliderInputNodes;
 
         this.startInputNode.addEventListener('click', this.startPlay.bind(this));
 
@@ -41,6 +45,18 @@ class PlayControl {
 
     }
 
+    synchronizeSpotAct() {
+        let msg = new Message();
+        msg.type = "updateSpot";
+        msg.data = {
+            "x": this.sliderInputNodes[0].calculatedResult,
+            "y": this.sliderInputNodes[1].calculatedResult,
+            "size": this.sliderInputNodes[2].calculatedResult,
+        };
+        this.performanceWin.postMessage(JSON.stringify(msg), "*");
+        // console.log(msg);
+    }
+
     synchronizeAct() {
         let msg = new Message();
         msg.type = "start";
@@ -55,7 +71,7 @@ class PlayControl {
         }
 
         this.feedbackCounter++;
-        console.log(this.feedbackCounter);
+        // console.log(this.feedbackCounter);
 
         if (this.feedbackCounter > 20) {
             this.setStatus("noInfo");

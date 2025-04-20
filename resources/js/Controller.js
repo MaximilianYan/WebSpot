@@ -7,11 +7,11 @@ class Controller {
     filesListID;
     displayStatusID;
 
-    // dataManager;
+    dataManager;
     playControl;
 
 
-    constructor(controlFormID, fileInputID, startInputID, filesListID, displayStatusID) {
+    constructor(controlFormID, fileInputID, startInputID, filesListID, displayStatusID, sliderInputIDs) {
         this.controlFormID = controlFormID;
         this.fileInputID = fileInputID;
         this.startInputID = startInputID;
@@ -22,14 +22,16 @@ class Controller {
             document.forms[this.controlFormID].elements[this.fileInputID],
             document.getElementById(this.filesListID),
         );
-        
+
         this.playControl = new PlayControl(
             document.forms[this.controlFormID].elements[this.startInputID],
             this.dataManager.getRawData.bind(this.dataManager),
             document.getElementById(this.displayStatusID),
+            sliderInputIDs.map(id => document.getElementById(id)),
         );
 
-        window.addEventListener('keydown', this.playControl.synchronizeAct.bind(this.playControl));
+        sliderInputIDs.map(id => document.getElementById(id).addEventListener('input', this.playControl.synchronizeSpotAct.bind(this.playControl)));
+        // window.addEventListener('keydown', this.playControl.synchronizeAct.bind(this.playControl));
 
     }
 
