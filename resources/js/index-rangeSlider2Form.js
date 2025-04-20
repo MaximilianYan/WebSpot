@@ -3,11 +3,13 @@ function rangeSlider2Main() {
         document.getElementById("rs-range-x"),
         document.getElementById("rs-range-y"),
         document.getElementById("rs-range-size"),
+        document.getElementById("rs-range-op"),
     ];
     let rangeBullets = [
         document.getElementById("rs-bullet-x"),
         document.getElementById("rs-bullet-y"),
         document.getElementById("rs-bullet-size"),
+        document.getElementById("rs-bullet-op"),
     ];
 
 
@@ -44,7 +46,7 @@ function rangeSlider2Main() {
     function updateSliderValue() {
         let i = this;
         var bulletPart = (+rangeSliders[i].value / +rangeSliders[i].max);
-        rangeSliders[i].calculatedResult = +calculateValue(bulletPart).toFixed(3);
+        rangeSliders[i].calculatedResult = +calculateValue(bulletPart).toFixed(5);
         rangeBullets[i].innerHTML = "x" + rangeSliders[i].calculatedResult;
         rangeBullets[i].style.left = +rangeSliders[i].offsetLeft + 11 + (bulletPart * (rangeSliders[i].offsetWidth - 22)) + "px";
 

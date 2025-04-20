@@ -52,6 +52,7 @@ class PlayControl {
             "x": this.sliderInputNodes[0].calculatedResult,
             "y": this.sliderInputNodes[1].calculatedResult,
             "size": this.sliderInputNodes[2].calculatedResult,
+            "op": this.sliderInputNodes[3].calculatedResult,
         };
         this.performanceWin.postMessage(JSON.stringify(msg), "*");
         // console.log(msg);

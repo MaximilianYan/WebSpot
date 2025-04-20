@@ -11,6 +11,7 @@ class PlayAgent {
 
     constructor() {
         this.spotNode = document.getElementById("spot");
+        this.spotNode.normalSize = parseFloat(this.spotNode.style.height);
     }
 
     startPlay(data) {
@@ -33,11 +34,12 @@ class PlayAgent {
     }
 
     synchronizeSpotAct(data) {
-        let normalSize = 40;
-
-        this.spotNode.style.height = normalSize * data.size + "%";
-        this.spotNode.style.marginTop = (100) / 2 * data.y + "%";
-        this.spotNode.style.marginLeft = (50) * (data.x - 1) - normalSize * data.size / 2 + "%";
+        this.spotNode.style.height = this.spotNode.normalSize * data.size + "%";
+        // this.spotNode.style.marginTop = (100) / 2 * data.y + "%";
+        // this.spotNode.style.marginLeft = (50) * (data.x - 1) - normalSize * data.size / 2 + "%";
+        this.spotNode.style.top = data.y + "%";
+        this.spotNode.style.left = + "%";
+        this.spotNode.style.opacity = data.op / 2;
     }
 
 
