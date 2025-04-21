@@ -8,12 +8,14 @@ class PlayAgent {
 
     timerUpdateFrame;
 
+    spotTrapRatio = 2;
 
     constructor() {
         this.spotNode = document.getElementById("spot");
+
         this.spotNode.normalSize = parseFloat(window.getComputedStyle(this.spotNode).height) / window.innerHeight * 100;
+
         this.spotNode.windowInnerRatio = window.innerHeight / window.innerWidth;
-        console.log("!!: " + this.spotNode.windowInnerRatio);
         window.addEventListener("resize", () => {
             this.spotNode.windowInnerRatio = window.innerHeight / window.innerWidth;
         });
@@ -39,9 +41,9 @@ class PlayAgent {
     }
 
     synchronizeSpotAct(data) {
-        this.spotNode.style.height = this.spotNode.normalSize * data.size + "%";
-        // this.spotNode.style.marginTop = (100) / 2 * data.y + "%";
-        // this.spotNode.style.marginLeft = (50) * (data.x - 1) - normalSize * data.size / 2 + "%";
+        let trapMul = 1 + data.y / 2 * (this.spotTrapRatio - 1);
+
+        this.spotNode.style.height = this.spotNode.normalSize * data.size * trapMul + "%";
         this.spotNode.style.top = (data.y / 2) * (100 - parseFloat(this.spotNode.style.height)) + "%";
         this.spotNode.style.left = (data.x / 2) * (100 - parseFloat(this.spotNode.style.height) * this.spotNode.windowInnerRatio) + "%";
         this.spotNode.style.opacity = data.op / 2;
